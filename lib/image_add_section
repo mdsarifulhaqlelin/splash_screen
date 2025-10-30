@@ -1,0 +1,59 @@
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'main.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    // Splash screen duration (3 seconds)
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MyHomePage(title: ''),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.blue,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // 🖼️ Image logo
+              Image.asset(
+                'assets/images/logo.png',
+                height: 120, // image size
+                width: 120,
+              ),
+              const SizedBox(height: 20),
+              // 🧾 App name text
+              const Text(
+                'Classico',
+                style: TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
